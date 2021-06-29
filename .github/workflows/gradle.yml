@@ -31,14 +31,14 @@ jobs:
 #     - name: Build with Gradle
 #       run: xvfb-run gradle build jar
 #       working-directory: esame_attsw_Bellocci
-     - name: Jacoco
-       run: xvfb-run gradle -PbuildProfile=jacoco jacocoTestReport
-       working-directory: examLibrary
+#     - name: Jacoco
+#       run: xvfb-run ./gradlew -PbuildProfile=jacoco jacocoTestReport
+#       working-directory: examLibrary
 #     - name: Pitest
 #       run: xvfb-run gradle -PbuildProfile=pitest pitest
 #       working-directory: esame_attsw_Bellocci
      - name: Coveralls
-       run: xvfb-run gradle -PbuildProfile=coveralls coveralls -DrepoToken=$COVERALLS_REPO_TOKEN
+       run: ./gradlew -PbuildProfile=coveralls jacocoTestReport coveralls
        working-directory: examLibrary
        env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
