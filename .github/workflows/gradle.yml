@@ -38,7 +38,7 @@ jobs:
 #       run: xvfb-run gradle -PbuildProfile=pitest pitest
 #       working-directory: esame_attsw_Bellocci
      - name: Coveralls
-       run: ./gradlew -PbuildProfile=coveralls jacocoTestReport coveralls
+       run: gradle -PbuildProfile=coveralls jacocoTestReport coveralls
        working-directory: examLibrary
        env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
